@@ -1,62 +1,78 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-#  main.py
-#  
-#  Copyright 2020  <pi@raspberrypi>
-#  
-#  This program is free software; you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by
-#  the Free Software Foundation; either version 2 of the License, or
-#  (at your option) any later version.
-#  
-#  This program is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
-#  
-#  You should have received a copy of the GNU General Public License
-#  along with this program; if not, write to the Free Software
-#  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
-#  MA 02110-1301, USA.
-#  
-#  
 
 
+# standard libraries
+from datetime import datetime
+import time
+
+
+# sensor related libraries
 import busio
 import adafruit_bme680
-import time
 import board
 
-from datetime import datetime
 
+def main():
+    
+    # read from the sensors BME680
+    log_name = datetime.now().strftime('%Y-%m-%d_%H-%M.txt')
+    data_labels = 'Timestamp,'
+    print('The log name is:', log_name)
+    with open('./data/{}'.format(log_name), 'a') as log:
+        log.write(data_labels)
+        log.write('\n')
+    
+    try:
+        i2c = busio.I2C(board.SCL, board.SDA)
+        sensor = adafruit_bme680.Adafruit_BME680_I2C(i2c)
+    except Exception as e:
+        print(e)
+        print('Could not configure the sensor. Exiting...')
+        exit(1)
 
-# read from the sensors BME680
-log_name = datetime.now().strftime('%Y-%m-%d_%H-%M.txt')
-data_labels = 'Timestamp,'
-print('The log name is:', log_name)
-with open('./data/{}'.format(log_name), 'a') as log:
-    log.write(data_labels)
-    log.write('\n')
-
-
-def main_loop():
+    
     while True:
         timestamp = datetime.now()
-        print('executing')
-        # read data
         
+        print()
+        print(timestamp)
+        
+        # read data
+        try:
+            print('Temperature: {} degrees C'.format(sensor.temperature))
+            print('Gas: {} ohms'.format(sensor.gas))
+            print('Humidity: {}%'.format(sensor.humidity))
+            print('Pressure: {}hPa'.format(sensor.pressure))
+        except:
+            print('Bad data')
+        
+        try:
+            t = str(round(sensor.temperature))
+        except:
+            t = 'None'
+        try:
+            g = str(round(sensor.gas)))
+        except:
+            g = 'None'
+        try:
+            h = str(round(sensor.humidity))
+        except:
+            h = 'None'
+        try:
+            p = str(round(sensor.pressure))
+        except:
+            p = 'None'
 
         # write to the log
         with open('./data/{}'.format(log_name), 'a') as log:
-            log.write(str(timestamp))
-            log.write('\n')
-        print('sleeping 5s...')
+            log.write(str(timestamp) + ',' + t + ',' + g + ',' + h + ',' + p + '\n')
+        print('sleeping 5s')
         time.sleep(5)
 
 
 if __name__ == '__main__':
     import sys
-    main_loop()
+    main()
     #sys.exit(main(sys.argv))
 
