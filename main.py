@@ -5,6 +5,7 @@
 # standard libraries
 from datetime import datetime
 import time
+import os
 
 
 # sensor related libraries
@@ -19,6 +20,7 @@ def main():
     log_name = datetime.now().strftime('%Y-%m-%d_%H-%M.txt')
     data_labels = 'Timestamp,'
     print('The log name is:', log_name)
+    os.system('mkdir data')
     with open('./data/{}'.format(log_name), 'a') as log:
         log.write(data_labels)
         log.write('\n')
