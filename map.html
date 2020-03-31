@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_de05596445424ccdbb5ca386be4b1582 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    
+            <style> #vega_0436f12be3b34d26b0060b9637bd6624 {
+                position : relative;
+                width : 450.0px;
+                height: 250.0px;
+                left: 0.0%;
+                top: 0.0%;
+            </style>
+            
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vega/1.4.3/vega.min.js"></script>
+    
+            <style> #vega_829fc92a62c54af8af4f6024874c86af {
+                position : relative;
+                width : 450.0px;
+                height: 250.0px;
+                left: 0.0%;
+                top: 0.0%;
+            </style>
+            
+    
+            <style> #vega_ddb5f46fb4dc4859b6251353bf311f03 {
+                position : relative;
+                width : 450.0px;
+                height: 250.0px;
+                left: 0.0%;
+                top: 0.0%;
+            </style>
+            
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_de05596445424ccdbb5ca386be4b1582" ></div>
+        
+</body>
+<script>    
+    
+            var map_de05596445424ccdbb5ca386be4b1582 = L.map(
+                "map_de05596445424ccdbb5ca386be4b1582",
+                {
+                    center: [59.3242, 18.0659],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_ac9f512991a84ec3b2ae3c6619a9ff79 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_de05596445424ccdbb5ca386be4b1582);
+        
+    
+            var marker_62202739662041ef9e992b5964394064 = L.marker(
+                [59.3339102009444, 18.045288693274678],
+                {}
+            ).addTo(map_de05596445424ccdbb5ca386be4b1582);
+        
+    function vega_parse(spec, div) {
+            vg.parse.spec(spec, function(chart) { chart({el:div}).update(); });}
+    
+        var popup_e5f1b819165d4a5e9156b16454c62f99 = L.popup({"maxWidth": 450});
+
+        
+            var vega_0436f12be3b34d26b0060b9637bd6624 = $(`             <div id="vega_0436f12be3b34d26b0060b9637bd6624"></div>             `)[0];
+            popup_e5f1b819165d4a5e9156b16454c62f99.setContent(vega_0436f12be3b34d26b0060b9637bd6624);
+        
+
+        marker_62202739662041ef9e992b5964394064.bindPopup(popup_e5f1b819165d4a5e9156b16454c62f99)
+        ;
+
+        
+            
+            vega_parse({"axes": [{"scale": "x", "title": "Time", "type": "x"}, {"scale": "y", "title": "Temperature (C)", "type": "y"}], "data": [{"name": "table", "values": [{"col": "Temperature (C)", "idx": "1585670020", "val": "21"}, {"col": "Temperature (C)", "idx": "1585670025", "val": "24"}, {"col": "Temperature (C)", "idx": "1585670030", "val": "23"}, {"col": "Temperature (C)", "idx": "1585670035", "val": "21"}, {"col": "Temperature (C)", "idx": "1585670040", "val": "21"}, {"col": "Temperature (C)", "idx": "1585670045", "val": "24"}, {"col": "Temperature (C)", "idx": "1585670050", "val": "23"}, {"col": "Temperature (C)", "idx": "1585670055", "val": "21"}, {"col": "Temperature (C)", "idx": "1585670060", "val": "21"}, {"col": "Temperature (C)", "idx": "1585670065", "val": "24"}, {"col": "Temperature (C)", "idx": "1585670070", "val": "23"}, {"col": "Temperature (C)", "idx": "1585670075", "val": "21"}]}], "height": 200, "legends": [], "marks": [{"from": {"data": "table", "transform": [{"keys": ["data.col"], "type": "facet"}]}, "marks": [{"properties": {"enter": {"stroke": {"field": "data.col", "scale": "color"}, "strokeWidth": {"value": 2}, "x": {"field": "data.idx", "scale": "x"}, "y": {"field": "data.val", "scale": "y"}}}, "type": "line"}], "type": "group"}], "padding": "auto", "scales": [{"domain": {"data": "table", "field": "data.idx"}, "name": "x", "range": "width", "type": "time"}, {"domain": {"data": "table", "field": "data.val"}, "name": "y", "nice": true, "range": "height"}, {"domain": {"data": "table", "field": "data.col"}, "name": "color", "range": "category20", "type": "ordinal"}], "width": 400},vega_0436f12be3b34d26b0060b9637bd6624);
+            
+        
+    
+    
+            var marker_1dae562f928c4da8a62a506daac38d73 = L.marker(
+                [59.29621821976175, 18.13782214414282],
+                {}
+            ).addTo(map_de05596445424ccdbb5ca386be4b1582);
+        
+    
+        var popup_6b897dab54954792aa3dc733fa73b5c8 = L.popup({"maxWidth": 450});
+
+        
+            var vega_829fc92a62c54af8af4f6024874c86af = $(`             <div id="vega_829fc92a62c54af8af4f6024874c86af"></div>             `)[0];
+            popup_6b897dab54954792aa3dc733fa73b5c8.setContent(vega_829fc92a62c54af8af4f6024874c86af);
+        
+
+        marker_1dae562f928c4da8a62a506daac38d73.bindPopup(popup_6b897dab54954792aa3dc733fa73b5c8)
+        ;
+
+        
+            
+            vega_parse({"axes": [{"scale": "x", "title": "Time", "type": "x"}, {"scale": "y", "title": "Temperature (C)", "type": "y"}], "data": [{"name": "table", "values": [{"col": "Temperature (C)", "idx": "1585670020", "val": "21"}, {"col": "Temperature (C)", "idx": "1585670025", "val": "24"}, {"col": "Temperature (C)", "idx": "1585670030", "val": "23"}, {"col": "Temperature (C)", "idx": "1585670035", "val": "21"}, {"col": "Temperature (C)", "idx": "1585670040", "val": "21"}, {"col": "Temperature (C)", "idx": "1585670045", "val": "24"}, {"col": "Temperature (C)", "idx": "1585670050", "val": "23"}, {"col": "Temperature (C)", "idx": "1585670055", "val": "21"}, {"col": "Temperature (C)", "idx": "1585670060", "val": "21"}, {"col": "Temperature (C)", "idx": "1585670065", "val": "24"}, {"col": "Temperature (C)", "idx": "1585670070", "val": "23"}, {"col": "Temperature (C)", "idx": "1585670075", "val": "21"}]}], "height": 200, "legends": [], "marks": [{"from": {"data": "table", "transform": [{"keys": ["data.col"], "type": "facet"}]}, "marks": [{"properties": {"enter": {"stroke": {"field": "data.col", "scale": "color"}, "strokeWidth": {"value": 2}, "x": {"field": "data.idx", "scale": "x"}, "y": {"field": "data.val", "scale": "y"}}}, "type": "line"}], "type": "group"}], "padding": "auto", "scales": [{"domain": {"data": "table", "field": "data.idx"}, "name": "x", "range": "width", "type": "time"}, {"domain": {"data": "table", "field": "data.val"}, "name": "y", "nice": true, "range": "height"}, {"domain": {"data": "table", "field": "data.col"}, "name": "color", "range": "category20", "type": "ordinal"}], "width": 400},vega_829fc92a62c54af8af4f6024874c86af);
+            
+        
+    
+    
+            var marker_92e8b67ebbb34418888eacf5f35c1230 = L.marker(
+                [59.335036640518304, 18.078070513260766],
+                {}
+            ).addTo(map_de05596445424ccdbb5ca386be4b1582);
+        
+    
+        var popup_946f959713bf4261b0982daa997ae106 = L.popup({"maxWidth": 450});
+
+        
+            var vega_ddb5f46fb4dc4859b6251353bf311f03 = $(`             <div id="vega_ddb5f46fb4dc4859b6251353bf311f03"></div>             `)[0];
+            popup_946f959713bf4261b0982daa997ae106.setContent(vega_ddb5f46fb4dc4859b6251353bf311f03);
+        
+
+        marker_92e8b67ebbb34418888eacf5f35c1230.bindPopup(popup_946f959713bf4261b0982daa997ae106)
+        ;
+
+        
+            
+            vega_parse({"axes": [{"scale": "x", "title": "Time", "type": "x"}, {"scale": "y", "title": "Temperature (C)", "type": "y"}], "data": [{"name": "table", "values": [{"col": "Temperature (C)", "idx": "1585670020", "val": "21"}, {"col": "Temperature (C)", "idx": "1585670025", "val": "24"}, {"col": "Temperature (C)", "idx": "1585670030", "val": "23"}, {"col": "Temperature (C)", "idx": "1585670035", "val": "21"}, {"col": "Temperature (C)", "idx": "1585670040", "val": "21"}, {"col": "Temperature (C)", "idx": "1585670045", "val": "24"}, {"col": "Temperature (C)", "idx": "1585670050", "val": "23"}, {"col": "Temperature (C)", "idx": "1585670055", "val": "21"}, {"col": "Temperature (C)", "idx": "1585670060", "val": "21"}, {"col": "Temperature (C)", "idx": "1585670065", "val": "24"}, {"col": "Temperature (C)", "idx": "1585670070", "val": "23"}, {"col": "Temperature (C)", "idx": "1585670075", "val": "21"}]}], "height": 200, "legends": [], "marks": [{"from": {"data": "table", "transform": [{"keys": ["data.col"], "type": "facet"}]}, "marks": [{"properties": {"enter": {"stroke": {"field": "data.col", "scale": "color"}, "strokeWidth": {"value": 2}, "x": {"field": "data.idx", "scale": "x"}, "y": {"field": "data.val", "scale": "y"}}}, "type": "line"}], "type": "group"}], "padding": "auto", "scales": [{"domain": {"data": "table", "field": "data.idx"}, "name": "x", "range": "width", "type": "time"}, {"domain": {"data": "table", "field": "data.val"}, "name": "y", "nice": true, "range": "height"}, {"domain": {"data": "table", "field": "data.col"}, "name": "color", "range": "category20", "type": "ordinal"}], "width": 400},vega_ddb5f46fb4dc4859b6251353bf311f03);
+            
+        
+    
+</script>

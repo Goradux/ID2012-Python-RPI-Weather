@@ -1,11 +1,8 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-
 # standard libraries
 from datetime import datetime
 import time
 import os
+import sys
 
 
 # sensor related libraries
@@ -15,12 +12,14 @@ import board
 
 
 def main():
-    
+
     # read from the sensors BME680
     log_name = datetime.now().strftime('%Y-%m-%d_%H-%M.txt')
     data_labels = 'Timestamp,Temperature,Gas,Humidity,Pressure'
     print('The log name is:', log_name)
+
     os.system('mkdir data')
+
     with open('./data/{}'.format(log_name), 'a') as log:
         log.write(data_labels)
         log.write('\n')
@@ -75,7 +74,6 @@ def main():
 
 
 if __name__ == '__main__':
-    import sys
     main()
     #sys.exit(main(sys.argv))
 
