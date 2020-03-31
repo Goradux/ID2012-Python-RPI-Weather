@@ -18,7 +18,7 @@ def main():
     
     # read from the sensors BME680
     log_name = datetime.now().strftime('%Y-%m-%d_%H-%M.txt')
-    data_labels = 'Timestamp,'
+    data_labels = 'Timestamp,Temperature,Gas,Humidity,Pressure'
     print('The log name is:', log_name)
     os.system('mkdir data')
     with open('./data/{}'.format(log_name), 'a') as log:
@@ -35,8 +35,9 @@ def main():
 
     
     while True:
-        timestamp = datetime.now()
-        
+        #timestamp = datetime.now()
+        timestamp = round(time.mktime(datetime.now().timetuple()))
+
         print()
         print(timestamp)
         
@@ -54,7 +55,7 @@ def main():
         except:
             t = 'None'
         try:
-            g = str(round(sensor.gas)))
+            g = str(round(sensor.gas))
         except:
             g = 'None'
         try:
