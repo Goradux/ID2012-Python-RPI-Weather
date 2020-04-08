@@ -29,8 +29,8 @@ def get_data():
                     continue
                 parsed = line.split(',')
                 line_data.append((parsed[0], parsed[1]))
-                #print(line)
-            #print(line_data)
+                print(line)
+            print(line_data)
             data = {
                 "axes": [
                     {

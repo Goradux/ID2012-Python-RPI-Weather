@@ -6,10 +6,10 @@ import sys
 
 
 # sensor related libraries
-import busio
-import adafruit_bme680
-import board
-
+#import busio
+#import adafruit_bme680
+#import board
+import bme680
 
 def main():
 
@@ -25,8 +25,8 @@ def main():
         log.write('\n')
     
     try:
-        i2c = busio.I2C(board.SCL, board.SDA)
-        sensor = adafruit_bme680.Adafruit_BME680_I2C(i2c)
+        #i2c = busio.I2C(board.SCL, board.SDA)
+        sensor = bme680.BME680(bme680.I2C_ADDR_PRIMARY)
     except Exception as e:
         print(e)
         print('Could not configure the sensor. Exiting...')
@@ -42,35 +42,36 @@ def main():
         
         # read data
         try:
-            print('Temperature: {} degrees C'.format(sensor.temperature))
-            print('Gas: {} ohms'.format(sensor.gas))
-            print('Humidity: {}%'.format(sensor.humidity))
-            print('Pressure: {}hPa'.format(sensor.pressure))
+            sensor.get_sensor_data()
+            print('Temperature: {} degrees C'.format(sensor.data.temperature))
+            print('Gas: {} ohms'.format(sensor.data.gas_resistance))
+            print('Humidity: {}%'.format(sensor.data.humidity))
+            print('Pressure: {}hPa'.format(sensor.data.pressure))
         except:
             print('Bad data')
         
         try:
-            t = str(round(sensor.temperature))
+            t = str(round(sensor.data.temperature))
         except:
             t = 'None'
         try:
-            g = str(round(sensor.gas))
+            g = str(round(sensor.data.gas_resistance))
         except:
             g = 'None'
         try:
-            h = str(round(sensor.humidity))
+            h = str(round(sensor.data.humidity))
         except:
             h = 'None'
         try:
-            p = str(round(sensor.pressure))
+            p = str(round(sensor.data.pressure))
         except:
             p = 'None'
 
         # write to the log
         with open('./data/{}'.format(log_name), 'a') as log:
             log.write(str(timestamp) + ',' + t + ',' + g + ',' + h + ',' + p + '\n')
-        print('sleeping 5s')
-        time.sleep(5)
+        print('sleeping 1s')
+        time.sleep(1)
 
 
 if __name__ == '__main__':
